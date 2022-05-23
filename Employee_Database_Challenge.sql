@@ -1,4 +1,4 @@
---Deliverable 1
+-- Deliverable 1 List
 SELECT e.emp_no,
 	e.first_name,
 	e.last_name,
@@ -20,4 +20,10 @@ INTO unique_titles
 FROM retirement_titles as rt
 WHERE to_date = '9999-01-01'
 ORDER BY emp_no, to_date DESC;
+-- Number of employees by title who are about to retire
+SELECT COUNT (ut.emp_no),
+	ut.title
+INTO retiring_titles
+FROM unique_titles as ut
+GROUP BY ut.title;
 
